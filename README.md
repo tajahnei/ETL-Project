@@ -2,7 +2,7 @@
 
 ### Project Proposal
 
-How does salary vary by region with regard to level of education?
+How does salary vary by region with regard to major and type of educational institution?
  
 This project will deliver a holistic analysis of salary ranges among top university majors. Each region has not been adjusted for cost of living, but rather the likelihood of achieving a higher salary depending on where you attend college and what area you concentrate on. We will try to account for the recent boom in technology driven vocational programs. Has the ongoing shift to digital learning and non traditional higher education afforded Americans a more affordable path to the middle class?
 
