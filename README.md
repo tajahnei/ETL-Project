@@ -67,110 +67,67 @@ Used Python for loop to extract and combine data from numerous Excel and Pdf fil
 
 TRANSFORM:
 
-1.colleges Table:
-•
-•
-•
-•
-•
-•
-•
-•
-
-
-college_type Table:
-•
-•
-•
-•
-•
-•
-•
-•
-
-colleges Table:
-•
-•
-•
-•
-•
-•
-•
-•
-
-regions Table:
-•
-•
-•
-•
-•
-•
-•
-•
-
-salaries_per_college Table:
-•
-•
-•
-•
-•
-•
-•
-•
-
-salaries_per_major Table:
-•
-•
-•
-•
-•
-•
-•
-•
-
-
-
-
-
-
-
 Datasource 1.
 
-Step 1 - Create College Scorecard Data Dictionary
-Step 2 - keep only the first 5 characters of the zip code, select currently operating schools, select degree granting schools only, filter data and save as updated dataframe
-Step 3 - columns renamed as user friendly labels for use in database
-Step 4 - drop last two rows
-Step 5 - update region names using the data dictionary provided by College Scorecard
+Step 1 - Create College Scorecard Data Dictionary (colleges table)
+Step 2 - keep only the first 5 characters of the zip code, select currently operating schools, select degree granting schools only, filter data and save as updated dataframe (colleges table)
+Step 3 - columns renamed as user friendly labels for use in database (colleges tables)
+Step 4 - drop last two rows (colleges table)
+Step 5 - update region names using the data dictionary provided by College Scorecard (colleges table)
 
 Datasource 2.
 
-Step 1 - drop any rows with a missing college id (schools_df)
-Step 2 - convert the college id to an integer (schools_df)
+Step 1 - drop any rows with a missing college id (colleges table)
+Step 2 - convert the college id to an integer (colleges table)
 Step 3 - rename the `UNITID` column to `college_id` ( To join with college_type, colleges, and salaries_per_college) 
-Step 4 - sort college_id & reset index
-Step 5 - Import school types from Kaggle CSV file
-Step 6 - drop any rows with a missing college id
+Step 4 - sort college_id & reset index (schools dataframe --> colleges table)
+Step 5 - Import school types from Kaggle CSV file (colleges table)
+Step 6 - drop any rows with a missing college id (colleges table)
 Step 7 - convert the college id to an integer &  rename the UNITID column to college_id ( to join college_type, colleges, and salaries_per_college tables on college_id)
-Step 8 - update school types of Party or State to Public
-Step 9 - drop duplicates
-Step 10 - remove data for schools that no longer exist
+Step 8 - update school types of Party or State to Public (college_types table)
+Step 9 - drop duplicates(college_types table)
+Step 10 - remove data for schools that no longer exist (college_types table)
 Step 11 - remove dollar sign from salary and transform salary columns to float in salaries_per_major and college_type tables
-Step 12 - rename columns so that all tables have school names and majors under column with the same name 
-Step 13 - merge Kaggle schools data with Scorecard schools data on college_id
-Step 14 - replace missing Kaggle school type with Scorecard school type
-Step 15 - delete unneeded columns & rename needed columns to name column to match college_types with colleges
-Step 16 - set college id as the index to join colleges, college_type, and salary_per_college
+Step 12 - rename columns so that all tables have school names and majors under column with the same name (college_type, colleges, and salaries_per_major tables)
+Step 13 - merge Kaggle schools data with Scorecard schools data on college_id (colleges table)
+Step 14 - replace missing Kaggle school type with Scorecard school type (colleges & college_type table)
+Step 15 - delete unneeded columns & rename needed columns to name column (to match college_types with colleges table)
+Step 16 - set college id as the index (to join colleges, college_type, and salary_per_college)
 
 Datasource 3. 
 
-Step 1 - rename columns
-Step 2 - drop any duplicate rows
+Step 1 - rename columns (regions table)
+Step 2 - drop any duplicate rows (regions table)
+Step 3 - sort table by zip code (regions table)
 
+Datasource 4.
+
+Step 1 - drop any duplicate rows (regions table)
+Step 2 - replace missing csa titles with the cbsa title (regions table)
+Step 3 - sort table by zip code (regions table)
+Step 4 - reset the index (regions table
+Step 5 - make sure that the cbsa codes are integers (regions table)
+Step 6 - delete unneeded columns (regions table
+Step 7 - drop rows with any missing data (regions table
+Step 8 - restructure columns (regions table)
+Step 9 - Glassdoor Metro Areas and lookup keys (regions table)
+Step 10 - create metro column in table with default string 'N/A' (regions table)
+Step 11 - loop through lookup keys (regions table)
+Step 12 - set glassdoor metro name where lookup key is found in CBSA title (regions table)
+
+Datasource 3. & 4.
+
+Step 1 - merge transformations into one table for storing to the database (regions table)
+Step 2 - drop any duplicate rows (regions table)
+Step 3 - drop rows with any missing data (regions table)
+Step 4 - reset the index (regions table
+Step 5 - make sure that the codes are integers (regions table)
+Step 6 - set zipcode as the index (regions table)
 
 
 
 LOAD: 
-The tables have all been created in Pandas so a load the code uses sql alchemy to load all tables into postgres
+The tables have all been created in Pandas so the code uses sql alchemy to load all tables into postgres
 
 A Diagram outlining the relationships between all of the table has been created in QuickDB and loaded into pgAdmin to create a sql file.
 
