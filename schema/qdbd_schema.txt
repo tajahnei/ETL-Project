@@ -1,0 +1,44 @@
+colleges
+----
+college_id PK int
+name varchar
+type varchar
+website varchar
+city varchar
+state varchar(2)
+zipcode varchar(5) FK >- regions.zipcode
+latitude float
+longitutde float
+state_fips int FK >- regions.state_fips
+region varchar
+
+regions
+----
+zipcode PK varchar(5)
+cbsa_code int(5)
+title varchar
+state_name varchar
+state_fips int
+metro varchar
+
+majors
+----
+major_id PK int
+major varchar
+
+college_majors
+----
+college_id PK int FK >- colleges.college_id
+major_id PK int FK >- majors.major_id
+
+salaries_per_major
+----
+major_id PK int FK >- majors.major_id
+starting_median_salary float
+midcareer_median_salary float
+
+salaries_per_college
+----
+college_id PK int FK >- colleges.college_id
+starting_median_salary float
+midcareer_median_salary float
