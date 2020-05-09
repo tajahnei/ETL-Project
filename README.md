@@ -67,7 +67,72 @@ Used Python for loop to extract and combine data from numerous Excel and Pdf fil
 
 TRANSFORM:
 
-Colleges Table__
+1.colleges Table:
+•
+•
+•
+•
+•
+•
+•
+•
+
+
+college_type Table:
+•
+•
+•
+•
+•
+•
+•
+•
+
+colleges Table:
+•
+•
+•
+•
+•
+•
+•
+•
+
+regions Table:
+•
+•
+•
+•
+•
+•
+•
+•
+
+salaries_per_college Table:
+•
+•
+•
+•
+•
+•
+•
+•
+
+salaries_per_major Table:
+•
+•
+•
+•
+•
+•
+•
+•
+
+
+
+
+
+
 
 Datasource 1.
 
@@ -104,11 +169,10 @@ Step 2 - drop any duplicate rows
 
 
 
-LOAD: Since the tables have been precreated in postgreSQL, loading of the data can happen only once (or primary keys will be violated). A test query combining all 6 tables shows it worked correctly.
+LOAD: 
+The tables have all been created in Pandas so a load the code uses sql alchemy to load all tables into postgres
 
-
-
-
+A Diagram outlining the relationships between all of the table has been created in QuickDB and loaded into pgAdmin to create a sql file.
 
 
 
