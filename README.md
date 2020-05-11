@@ -1,71 +1,45 @@
-# ETL-Project
-
-### Project Proposal
-
-How does salary vary by region with regard to major and type of educational institution?
- 
-This project will deliver a holistic analysis of salary ranges among top university majors. Each region has not been adjusted for cost of living, but rather the likelihood of achieving a higher salary depending on where you attend college and what area you concentrate on. We will try to account for the recent boom in technology driven vocational programs. Has the ongoing shift to digital learning and non traditional higher education afforded Americans a more affordable path to the middle class?
-
-
-### Data Sources: 
-WSJ - Salaries by college, region, and academic major
-
-https://www.kaggle.com/wsj/college-salaries
-
- College Majors DATASET IN FIVETHIRTYEIGHT
-
-https://data.world/fivethirtyeight/college-majors
-
-US Census - Educational attainment and employment status
-
-https://www.census.gov/programs-surveys/acs/data/pums.html
-https://www.census.gov/topics/income-poverty/data/datasets.html
-
-US Bureau of Labor Statistics - Employment & Pay
-
-https://www.bls.gov/help/hlpforma.htm#SM
-
-Glassdoor Economic Research
-
-https://www.glassdoor.com/research/job-market-report-historical/
-
-Other Resources
-
-https://cew.georgetown.edu/cew-reports/valueofcollegemajors/#explore-data
-https://www.census.gov/about/policies/open-gov/open-data.html
-https://nces.ed.gov/datatools/index.asp?DataToolSectionID=1
-https://www.glassdoor.com/research/job-market-report-historical/
-
-
-Determine which industries/sectors will bounce back/recover quicker.  
-
-
-
-Project 2: ETL Challenge
+## Project 2: ETL Challenge
 
 This project was completed by Thomas, Ahmad and Tajahnei.
 
-The project will examine a database with data showing the average salary per college major and if certain schools award you a higher salary over the course of your career. The reader can determine if the salary increase outweighs the cost of the degree at more expensive schools. It has been aggregated at 'school_type' which will tell us if there's any pattern in salary growth amoung public or private institutions. After researching census data, we were able to cross reference the salary at each school with the zipcode to measure the average salary in each region. The process involved collecting standardized data from 4 sources and identifying real world considerations when choosing a college.
+The project will examine a database with data showing the average salary per college major and if certain schools award you a higher salary over the course of your career. The reader can determine if the salary increase outweighs the cost of the degree at more expensive schools. It has been aggregated at 'college_type' which will tell us if there's any pattern in salary growth amoung public or private institutions. After researching census data, we were able to cross reference the salary at each school with the zipcode to measure the average salary in each region. The process involved collecting standardized data from 4 sources and identifying real world considerations when choosing a college.
 
-These are the steps that were taken:
+## Data Sources: 
+WSJ - Salaries by college, region, and academic major
+* https://www.kaggle.com/wsj/college-salaries
 
-EXTRACT:
+U.S. Department of Education - College Scorecard
+* https://collegescorecard.ed.gov/data/
 
-Pandas read_csv function was used to extract data from the follow 2 data sources and load it into a pandas dataframe-
+U.S. Census Bureau - Core-based statistical area (CBSA) data
+* https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2018/delineation-files/list1.xls
 
-1. https://collegescorecard.ed.gov/data/ (ETL-Project/data/scorecard
+HUD-USPS ZIP Crosswalk Files
+* https://www.huduser.gov/portal/datasets/usps_crosswalk.html#data
 
-2. https://www.kaggle.com/wsj/college-salaries  (ETL-Project/data/kaggle)
+### These are the steps that were taken:
 
-Used Python for loop to extract and combine data from numerous Excel and Pdf files and load it into a Pandas dataframe-
+1. The database schema was defined [quickdatabasediagrams.com](https://app.quickdatabasediagrams.com) as follows:
 
-3. https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2018/delineation-files/ (ETL-Project/data/cbsa)
+![db_diagram.svg](images/db_diagram.png) 
 
-4. https://www2.census.gov/programs-surveys/cps/methodology/ (ETL-Project/data/cbsa)
+2. The export function was used to predefine the database in PostgresSQL (see [db_schema.sql](schema/db_schema.sql))
+
+3. Once the database is designed, the ETL process can run.
+
+### __EXTRACT__:
+First, the following data sources are loaded using Pandas read_csv and read_excel, sometimes requiring looping through numerous files in a directory. CSV and Excel files can be found in the data folder.
+
+1. MERGED2018_19_pp.csv - [source collegescorecard.ed.gov](https://collegescorecard.ed.gov/data/)
+2. salaries-by-region-id.csv [source kaggle.com](https://www.kaggle.com/wsj/college-salaries)
+3. salaries-by-college-type-id.csv [source kaggle.com](https://www.kaggle.com/wsj/college-salaries)
+4. zipcode_cbsa_crosswalk_2018.csv [source huduser.gov](https://www.huduser.gov/portal/datasets/usps_crosswalk.html#data)
+5. 2018_cbsa.xls [source census.gov](https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2018/delineation-files/list1.xls)
+6. CollegeScorecardDataDictionary.xlsx [source collegescorecard.ed.gov](https://collegescorecard.ed.gov/data/)
+7. degrees-that-pay-back.csv [source kaggle.com](https://www.kaggle.com/wsj/college-salaries)
 
 
-
-TRANSFORM:
+### __TRANSFORM__:
 
 Datasource 1.
 
@@ -126,38 +100,5 @@ Step 6 - set zipcode as the index (regions table)
 
 
 
-LOAD: 
-The tables have all been created in Pandas so the code uses sql alchemy to load all tables into postgres
-
-A Diagram outlining the relationships between all of the table has been created in QuickDB and loaded into pgAdmin to create a sql file.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### __LOAD__: 
+The tables have all been created in Pandas DataFrames and the tables are loaded to PostgresSQL database using SQLAlchemy. Everytime this program is run it will overwrite the tables in the database.
