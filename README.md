@@ -41,64 +41,95 @@ First, the following data sources are loaded using Pandas read_csv and read_exce
 
 ### __TRANSFORM__:
 
-Datasource 1.
+Datasource 1
 
-Step 1 - Create College Scorecard Data Dictionary (colleges table)
-Step 2 - keep only the first 5 characters of the zip code, select currently operating schools, select degree granting schools only, filter data and save as updated dataframe (colleges table)
-Step 3 - columns renamed as user friendly labels for use in database (colleges tables)
-Step 4 - drop last two rows (colleges table)
-Step 5 - update region names using the data dictionary provided by College Scorecard (colleges table)
+* Step 1 - Create College Scorecard Data Dictionary (colleges table)
+* Step 2 - keep only the first 5 characters of the zip code, select currently operating schools, select degree granting schools only, filter data and save as updated dataframe (colleges table)
+* Step 3 - columns renamed as user friendly labels for use in database (colleges tables)
+* Step 4 - drop last two rows (colleges table)
+* Step 5 - update region names using the data dictionary provided by College Scorecard (colleges table)
 
-Datasource 2.
+Datasource 2
 
-Step 1 - drop any rows with a missing college id (colleges table)
-Step 2 - convert the college id to an integer (colleges table)
-Step 3 - rename the `UNITID` column to `college_id` ( To join with college_type, colleges, and salaries_per_college) 
-Step 4 - sort college_id & reset index (schools dataframe --> colleges table)
-Step 5 - Import school types from Kaggle CSV file (colleges table)
-Step 6 - drop any rows with a missing college id (colleges table)
-Step 7 - convert the college id to an integer &  rename the UNITID column to college_id ( to join college_type, colleges, and salaries_per_college tables on college_id)
-Step 8 - update school types of Party or State to Public (college_types table)
-Step 9 - drop duplicates(college_types table)
-Step 10 - remove data for schools that no longer exist (college_types table)
-Step 11 - remove dollar sign from salary and transform salary columns to float in salaries_per_major and college_type tables
-Step 12 - rename columns so that all tables have school names and majors under column with the same name (college_type, colleges, and salaries_per_major tables)
-Step 13 - merge Kaggle schools data with Scorecard schools data on college_id (colleges table)
-Step 14 - replace missing Kaggle school type with Scorecard school type (colleges & college_type table)
-Step 15 - delete unneeded columns & rename needed columns to name column (to match college_types with colleges table)
-Step 16 - set college id as the index (to join colleges, college_type, and salary_per_college)
+* Step 1 - drop any rows with a missing college id (colleges table)
+* Step 2 - convert the college id to an integer (colleges table)
+* Step 3 - rename the `UNITID` column to `college_id` ( To join with college_type, colleges, and salaries_per_college) 
+* Step 4 - sort college_id & reset index (schools dataframe --> colleges table)
+* Step 5 - Import school types from Kaggle CSV file (colleges table)
+* Step 6 - drop any rows with a missing college id (colleges table)
+* Step 7 - convert the college id to an integer &  rename the UNITID column to college_id ( to join college_type, colleges, and salaries_per_college tables on college_id)
+* Step 8 - update school types of Party or State to Public (college_types table)
+* Step 9 - drop duplicates(college_types table)
+* Step 10 - remove data for schools that no longer exist (college_types table)
+* Step 11 - remove dollar sign from salary and transform salary columns to float in salaries_per_major and college_type tables
+* Step 12 - rename columns so that all tables have school names and majors under column with the same name (college_type, colleges, and salaries_per_major tables)
+* Step 13 - merge Kaggle schools data with Scorecard schools data on college_id (colleges table)
+* Step 14 - replace missing Kaggle school type with Scorecard school type (colleges & college_type table)
+* Step 15 - delete unneeded columns & rename needed columns to name column (to match college_types with colleges table)
+* Step 16 - set college id as the index (to join colleges, college_type, and salary_per_college)
 
-Datasource 3. 
+Datasource 3
 
-Step 1 - rename columns (regions table)
-Step 2 - drop any duplicate rows (regions table)
-Step 3 - sort table by zip code (regions table)
+* Step 1 - rename columns (regions table)
+* Step 2 - drop any duplicate rows (regions table)
+* Step 3 - sort table by zip code (regions table)
 
-Datasource 4.
+Datasource 4
 
-Step 1 - drop any duplicate rows (regions table)
-Step 2 - replace missing csa titles with the cbsa title (regions table)
-Step 3 - sort table by zip code (regions table)
-Step 4 - reset the index (regions table
-Step 5 - make sure that the cbsa codes are integers (regions table)
-Step 6 - delete unneeded columns (regions table
-Step 7 - drop rows with any missing data (regions table
-Step 8 - restructure columns (regions table)
-Step 9 - Glassdoor Metro Areas and lookup keys (regions table)
-Step 10 - create metro column in table with default string 'N/A' (regions table)
-Step 11 - loop through lookup keys (regions table)
-Step 12 - set glassdoor metro name where lookup key is found in CBSA title (regions table)
+* Step 1 - drop any duplicate rows (regions table)
+* Step 2 - replace missing csa titles with the cbsa title (regions table)
+* Step 3 - sort table by zip code (regions table)
+* Step 4 - reset the index (regions table
+* Step 5 - make sure that the cbsa codes are integers (regions table)
+* Step 6 - delete unneeded columns (regions table
+* Step 7 - drop rows with any missing data (regions table
+* Step 8 - restructure columns (regions table)
+* Step 9 - Glassdoor Metro Areas and lookup keys (regions table)
+* Step 10 - create metro column in table with default string 'N/A' (regions table)
+* Step 11 - loop through lookup keys (regions table)
+* Step 12 - set glassdoor metro name where lookup key is found in CBSA title (regions table)
 
-Datasource 3. & 4.
+Datasource 3 & 4
 
-Step 1 - merge transformations into one table for storing to the database (regions table)
-Step 2 - drop any duplicate rows (regions table)
-Step 3 - drop rows with any missing data (regions table)
-Step 4 - reset the index (regions table
-Step 5 - make sure that the codes are integers (regions table)
-Step 6 - set zipcode as the index (regions table)
+* Step 1 - merge transformations into one table for storing to the database (regions table)
+* Step 2 - drop any duplicate rows (regions table)
+* Step 3 - drop rows with any missing data (regions table)
+* Step 4 - reset the index (regions table
+* Step 5 - make sure that the codes are integers (regions table)
+* Step 6 - set zipcode as the index (regions table)
 
+Create college to major relationship table
+* Step 1 - retrieve degree datadictionary, columns and labels
+* Step 2 - reset dataframe index
+* Step 3 - only retrieve only the college id and the degree columns
+* Step 4 - rename the columns to the degree labels
+* Step 5 - transpose degree columns into rows by college id
+* Step 6 - drop duplicates
+* Step 7 - filter colleges for majors offered
+* Step 8 - merge college data with major CIP codes obtained from NCES
+* Step 9 - rename columns
+* Step 10 - merge major CIP codes with college list and their majors
+
+Create salaries per college table
+* Step 1 - select only columns needed
+* Step 2 - rename columns to user friendly names
+* Step 3 - drop duplicate rows and any rows with missing data
+* Step 4 - transform the college id field to an integer type
+* Step 5 - convert currency string columns into floats
+* Step 6 - set college id as the index of the table
+
+Create a majors table
+* Step 1 - sort the majors by major name
+* Step 2 - rename the major column to a more user friendly name
+
+Create salaries per major table
+* Step 1 - rename the degree column to a more user friendly name
+* Step 2 - convert currency string columns into floats
+* Step 3 - drop unnecessary columns
+* Step 4 - merge dataframe with majors dataframe to map major to major code
 
 
 ### __LOAD__: 
-The tables have all been created in Pandas DataFrames and the tables are loaded to PostgresSQL database using SQLAlchemy. Everytime this program is run it will overwrite the tables in the database.
+The tables have all been created in Pandas DataFrames and the tables are loaded to PostgresSQL database using SQLAlchemy. Everytime this program is run it will overwrite the tables in the database. Added code for alter the tables and adding primary keys where needed.
+
+Also, exported the dataframes a CSV files for uploading into a database. The files are located in the resources folder.
