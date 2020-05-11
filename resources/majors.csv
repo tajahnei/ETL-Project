@@ -1,51 +1,51 @@
 major_id,major
-0,Accounting
-1,Aerospace Engineering
-2,Agriculture
-3,Anthropology
-4,Architecture
-5,Art History
-6,Biology
-7,Business Management
-8,Chemical Engineering
-9,Chemistry
-10,Civil Engineering
-11,Communications
-12,Computer Engineering
-13,Computer Science
-14,Construction
-15,Criminal Justice
-16,Drama
-17,Economics
-18,Education
-19,Electrical Engineering
-20,English
-21,Film
-22,Finance
-23,Forestry
-24,Geography
-25,Geology
-26,Graphic Design
-27,Health Care Administration
-28,History
-29,Hospitality & Tourism
-30,Industrial Engineering
-31,Information Technology (IT)
-32,Interior Design
-33,International Relations
-34,Journalism
-35,Management Information Systems (MIS)
-36,Marketing
-37,Math
-38,Mechanical Engineering
-39,Music
-40,Nursing
-41,Nutrition
-42,Philosophy
-43,Physician Assistant
-44,Physics
-45,Political Science
-46,Psychology
-47,Religion
-48,Sociology
-49,Spanish
+200,Accounting
+450,Aerospace Engineering
+100,Agriculture
+900,Anthropology
+120,Architecture
+940,Art History
+160,Biology
+200,Business Management
+450,Chemical Engineering
+830,Chemistry
+450,Civil Engineering
+250,Communications
+500,Computer Engineering
+300,Computer Science
+450,Construction
+890,Criminal Justice
+940,Drama
+900,Economics
+400,Education
+450,Electrical Engineering
+520,English
+940,Film
+200,Finance
+790,Forestry
+900,Geography
+450,Geology
+940,Graphic Design
+600,Health Care Administration
+700,History
+200,Hospitality & Tourism
+450,Industrial Engineering
+300,Information Technology (IT)
+940,Interior Design
+880,International Relations
+250,Journalism
+200,Management Information Systems (MIS)
+200,Marketing
+740,Math
+450,Mechanical Engineering
+940,Music
+600,Nursing
+540,Nutrition
+820,Philosophy
+600,Physician Assistant
+830,Physics
+900,Political Science
+870,Psychology
+920,Religion
+900,Sociology
+550,Spanish

@@ -1,39 +1,39 @@
-major
-"Agriculture, Agriculture Operations, and Related Sciences"
-Architecture and Related Services
-"Area, Ethnic, Cultural, Gender, and Group Studies"
-Biological and Biomedical Sciences
-"Business, Management, Marketing, and Related Support Services"
-"Communication, Journalism, and Related Programs"
-Communications Technologies/Technicians and Support Services
-Computer and Information Sciences and Support Services
-Construction Trades
-Education
-Engineering
-Engineering Technologies and Engineering-Related Fields
-English Language and Literature/Letters
-Family and Consumer Sciences/Human Sciences
-"Foreign Languages, Literatures, and Linguistics"
-Health Professions and Related Programs
-History
-"Homeland Security, Law Enforcement, Firefighting and Related Protective Services"
-Legal Professions and Studies
-"Liberal Arts and Sciences, General Studies and Humanities"
-Library Science
-Mathematics and Statistics
-Mechanic and Repair Technologies/Technicians
-Military Technologies and Applied Sciences
-Multi/Interdisciplinary Studies
-Natural Resources and Conservation
-"Parks, Recreation, Leisure, and Fitness Studies"
-Personal and Culinary Services
-Philosophy and Religious Studies
-Physical Sciences
-Precision Production
-Psychology
-Public Administration and Social Service Professions
-Science Technologies/Technicians
-Social Sciences
-Theology and Religious Vocations
-Transportation and Materials Moving
-Visual and Performing Arts
+major_id,major
+100,"Agriculture, Agriculture Operations, and Related Sciences"
+120,Architecture and Related Services
+140,"Area, Ethnic, Cultural, Gender, and Group Studies"
+160,Biological and Biomedical Sciences
+200,"Business, Management, Marketing, and Related Support Services"
+250,"Communication, Journalism, and Related Programs"
+0,Communications Technologies/Technicians and Support Services
+300,Computer and Information Sciences and Support Services
+0,Construction Trades
+400,Education
+450,Engineering
+500,Engineering Technologies and Engineering-Related Fields
+520,English Language and Literature/Letters
+540,Family and Consumer Sciences/Human Sciences
+550,"Foreign Languages, Literatures, and Linguistics"
+600,Health Professions and Related Programs
+700,History
+890,"Homeland Security, Law Enforcement, Firefighting and Related Protective Services"
+710,Legal Professions and Studies
+720,"Liberal Arts and Sciences, General Studies and Humanities"
+0,Library Science
+740,Mathematics and Statistics
+0,Mechanic and Repair Technologies/Technicians
+360,Military Technologies and Applied Sciences
+770,Multi/Interdisciplinary Studies
+790,Natural Resources and Conservation
+800,"Parks, Recreation, Leisure, and Fitness Studies"
+810,Personal and Culinary Services
+820,Philosophy and Religious Studies
+830,Physical Sciences
+0,Precision Production
+870,Psychology
+880,Public Administration and Social Service Professions
+0,Science Technologies/Technicians
+900,Social Sciences
+920,Theology and Religious Vocations
+0,Transportation and Materials Moving
+940,Visual and Performing Arts
