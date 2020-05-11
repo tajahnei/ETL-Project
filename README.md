@@ -98,37 +98,6 @@ Datasource 3 & 4
 * Step 5 - make sure that the codes are integers (regions table)
 * Step 6 - set zipcode as the index (regions table)
 
-Create college to major relationship table
-* Step 1 - retrieve degree datadictionary, columns and labels
-* Step 2 - reset dataframe index
-* Step 3 - only retrieve only the college id and the degree columns
-* Step 4 - rename the columns to the degree labels
-* Step 5 - transpose degree columns into rows by college id
-* Step 6 - drop duplicates
-* Step 7 - filter colleges for majors offered
-* Step 8 - merge college data with major CIP codes obtained from NCES
-* Step 9 - rename columns
-* Step 10 - merge major CIP codes with college list and their majors
-
-Create salaries per college table
-* Step 1 - select only columns needed
-* Step 2 - rename columns to user friendly names
-* Step 3 - drop duplicate rows and any rows with missing data
-* Step 4 - transform the college id field to an integer type
-* Step 5 - convert currency string columns into floats
-* Step 6 - set college id as the index of the table
-
-Create a majors table
-* Step 1 - sort the majors by major name
-* Step 2 - rename the major column to a more user friendly name
-
-Create salaries per major table
-* Step 1 - rename the degree column to a more user friendly name
-* Step 2 - convert currency string columns into floats
-* Step 3 - drop unnecessary columns
-* Step 4 - merge dataframe with majors dataframe to map major to major code
-
-
 ### __LOAD__: 
 The tables have all been created in Pandas DataFrames and the tables are loaded to PostgresSQL database using SQLAlchemy. Everytime this program is run it will overwrite the tables in the database. Added code for alter the tables and adding primary keys where needed.
 
