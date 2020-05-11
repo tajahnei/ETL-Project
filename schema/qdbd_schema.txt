@@ -17,8 +17,6 @@ regions
 zipcode PK varchar(5)
 cbsa_code int(5)
 title varchar
-state_name varchar
-state_fips int
 metro varchar
 
 majors

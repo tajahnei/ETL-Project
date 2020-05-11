@@ -19,8 +19,6 @@ CREATE TABLE "regions" (
     "zipcode" varchar(5)   NOT NULL,
     "cbsa_code" int(5)   NOT NULL,
     "title" varchar   NOT NULL,
-    "state_name" varchar   NOT NULL,
-    "state_fips" int   NOT NULL,
     "metro" varchar   NOT NULL,
     CONSTRAINT "pk_regions" PRIMARY KEY (
         "zipcode"
@@ -61,8 +59,8 @@ CREATE TABLE "salaries_per_college" (
      )
 );
 
-ALTER TABLE "colleges" ADD CONSTRAINT "fk_colleges_zipcode_state_fips" FOREIGN KEY("zipcode", "state_fips")
-REFERENCES "regions" ("zipcode", "state_fips");
+ALTER TABLE "colleges" ADD CONSTRAINT "fk_colleges_zipcode" FOREIGN KEY("zipcode")
+REFERENCES "regions" ("zipcode");
 
 ALTER TABLE "college_majors" ADD CONSTRAINT "fk_college_majors_college_id" FOREIGN KEY("college_id")
 REFERENCES "colleges" ("college_id");
